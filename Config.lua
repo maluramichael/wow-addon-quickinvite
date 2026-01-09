@@ -111,6 +111,27 @@ function QuickInvite:GetOptionsTable()
                     self:Print("Blacklist cleared.")
                 end,
             },
+            blacklistList = {
+                type = "description",
+                name = function()
+                    return "\nBlacklisted players:\n" .. self:GetBlacklistText()
+                end,
+                order = 44,
+                fontSize = "medium",
+            },
+            blacklistRemove = {
+                type = "input",
+                name = "Remove from Blacklist",
+                desc = "Enter player name to remove from blacklist",
+                order = 45,
+                get = function() return "" end,
+                set = function(_, val)
+                    if val and val:trim() ~= "" then
+                        self:RemoveFromBlacklist(val:trim())
+                        self:Print(val:trim() .. " removed from blacklist.")
+                    end
+                end,
+            },
             whitelistHeader = {
                 type = "header",
                 name = "Whitelist",

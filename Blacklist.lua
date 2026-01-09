@@ -77,3 +77,31 @@ function QuickInvite:FormatDuration(seconds)
         return string.format("%.0f seconds", seconds)
     end
 end
+
+function QuickInvite:GetBlacklistEntries()
+    local entries = {}
+    local now = time()
+    for name, expireTime in pairs(self.db.profile.blacklist) do
+        if now < expireTime then
+            local remaining = expireTime - now
+            table.insert(entries, {
+                name = name,
+                expires = self:FormatDuration(remaining)
+            })
+        end
+    end
+    table.sort(entries, function(a, b) return a.name < b.name end)
+    return entries
+end
+
+function QuickInvite:GetBlacklistText()
+    local entries = self:GetBlacklistEntries()
+    if #entries == 0 then
+        return "No players blacklisted."
+    end
+    local lines = {}
+    for _, entry in ipairs(entries) do
+        table.insert(lines, string.format("  %s (expires in %s)", entry.name, entry.expires))
+    end
+    return table.concat(lines, "\n")
+end
