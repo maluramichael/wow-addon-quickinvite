@@ -93,6 +93,8 @@ function QuickInvite:CheckUnit(unit, minLevel, maxLevel, invitesSent)
 end
 
 function QuickInvite:InvitePlayer(playerName)
+    if not self.db.profile.enabled then return end
+
     InviteUnit(playerName)
     self.pendingInvites[playerName:lower()] = time()
     self:Print("Invited: " .. playerName)
