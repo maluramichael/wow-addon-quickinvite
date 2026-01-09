@@ -30,6 +30,8 @@ function QuickInvite:ScanForPlayers()
     local minLevel = playerLevel - self.db.profile.levelPadding
     local maxLevel = playerLevel + self.db.profile.levelPadding
 
+    self:Debug("Scanning for players (level " .. minLevel .. "-" .. maxLevel .. ")")
+
     local invitesSent = 0
 
     for i = 1, 40 do
@@ -68,15 +70,20 @@ function QuickInvite:CheckUnit(unit, minLevel, maxLevel, invitesSent)
     nearbyPlayers[fullName:lower()] = true
 
     local level = UnitLevel(unit)
-    if level < minLevel or level > maxLevel then return 0 end
+    if level < minLevel or level > maxLevel then
+        self:Debug("Skipped " .. fullName .. " (level " .. level .. " out of range)")
+        return 0
+    end
 
     if not self:IsWhitelisted(fullName) and self:IsBlacklisted(fullName) then
+        self:Debug("Skipped " .. fullName .. " (blacklisted)")
         return 0
     end
 
     if self.pendingInvites[fullName:lower()] then
         local pendingTime = self.pendingInvites[fullName:lower()]
         if time() - pendingTime < 60 then
+            self:Debug("Skipped " .. fullName .. " (recently invited)")
             return 0
         end
     end

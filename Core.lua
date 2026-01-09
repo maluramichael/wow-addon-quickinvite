@@ -14,6 +14,7 @@ QuickInvite.version = C_AddOns.GetAddOnMetadata(addonName, "Version") or "1.0.0"
 local defaults = {
     profile = {
         enabled = false,
+        debug = false,
         levelPadding = 2,
         blacklistDuration = 86400,
         scanInterval = 5,
@@ -82,6 +83,21 @@ function QuickInvite:IsEnabled()
     return self.db.profile.enabled
 end
 
+function QuickInvite:Debug(...)
+    if self.db.profile.debug then
+        self:Print("|cFF888888[Debug]|r", ...)
+    end
+end
+
+function QuickInvite:ToggleDebug()
+    self.db.profile.debug = not self.db.profile.debug
+    if self.db.profile.debug then
+        self:Print("Debug mode |cFF00FF00ENABLED|r")
+    else
+        self:Print("Debug mode |cFFFF0000DISABLED|r")
+    end
+end
+
 function QuickInvite:SlashCommand(input)
     local cmd = input:lower():trim()
 
@@ -91,6 +107,8 @@ function QuickInvite:SlashCommand(input)
         self:Enable()
     elseif cmd == "disable" or cmd == "off" then
         self:Disable()
+    elseif cmd == "debug" then
+        self:ToggleDebug()
     elseif cmd == "config" or cmd == "options" then
         Settings.OpenToCategory("QuickInvite")
     elseif cmd == "status" then
@@ -110,6 +128,7 @@ function QuickInvite:PrintHelp()
     self:Print("  /qi toggle - Toggle auto-invite on/off")
     self:Print("  /qi enable|on - Enable auto-invite")
     self:Print("  /qi disable|off - Disable auto-invite")
+    self:Print("  /qi debug - Toggle debug output")
     self:Print("  /qi config - Open configuration panel")
     self:Print("  /qi status - Show current status")
     self:Print("  /qi clearblacklist - Clear the blacklist")
