@@ -1,0 +1,14 @@
+## Interface: 11508
+## Title: QuickInvite
+## Notes: Auto-invite nearby players within configurable level range
+## Author: Michael Malura
+## Version: 1.0.0
+## SavedVariables: QuickInviteDB
+## OptionalDeps: Ace3
+
+embeds.xml
+
+Core.lua
+Blacklist.lua
+Scanner.lua
+Config.lua
