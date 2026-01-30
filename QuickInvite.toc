@@ -2,7 +2,7 @@
 ## Title: |cFF00D1FFMM|r QuickInvite
 ## Notes: Auto-invite nearby players within configurable level range
 ## Author: Michael Malura
-## Version: 1.0.3
+## Version: 1.0.4
 ## IconTexture: Interface\Icons\Spell_Holy_BlessingOfStrength
 ## Category-enUS: Social
 ## Category-deDE: Sozial
