@@ -1,4 +1,4 @@
-## Interface: 11508, 20505
+## Interface: 20505
 ## Title: |cFF00D1FFMM|r QuickInvite
 ## Notes: Auto-invite nearby players within configurable level range
 ## Author: Michael Malura
