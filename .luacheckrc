@@ -17,7 +17,9 @@ read_globals = {
     "LibStub",
     "CreateFrame", "UIParent", "GameTooltip", "Settings",
     "UnitName", "UnitLevel", "InviteUnit", "C_NamePlate",
-    "InterfaceOptionsFrame_OpenToCategory",
+    "InterfaceOptionsFrame_OpenToCategory", "C_Timer", "C_AddOns",
+    "GetNumGroupMembers", "UnitExists", "UnitIsPlayer", "UnitIsFriend",
+    "UnitIsUnit", "UnitInParty", "UnitInRaid", "wipe",
     "pairs", "ipairs", "select", "string", "table", "math", "format",
-    "tonumber", "tostring", "type", "unpack",
+    "tonumber", "tostring", "type", "unpack", "time",
 }
