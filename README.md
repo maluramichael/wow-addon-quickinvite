@@ -1,5 +1,10 @@
 # QuickInvite
 
+<!-- links:start -->
+[![Support me on Ko-fi](https://malura.de/assets/badge/kofi.svg)](https://malura.de/go/kofi?ref=wow-addon-quickinvite)
+[![Check out my page](https://malura.de/assets/badge/malura.svg)](https://malura.de/go/site?ref=wow-addon-quickinvite)
+<!-- links:end -->
+
 A World of Warcraft addon that automatically invites nearby players within a configurable level range. Perfect for quickly forming groups while questing or grinding.
 
 ## Features
