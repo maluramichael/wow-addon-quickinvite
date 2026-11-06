@@ -1,8 +1,8 @@
-## Interface: 20505
+## Interface: 20505, 16001
 ## Title: |cFF00D1FFMM|r QuickInvite
 ## Notes: Auto-invite nearby players within configurable level range
 ## Author: Michael Malura
-## Version: 1.0.4
+## Version: 1.1.0
 ## IconTexture: Interface\Icons\Spell_Holy_BlessingOfStrength
 ## Category-enUS: Social
 ## Category-deDE: Sozial
